@@ -5,3 +5,4 @@ outputs/
 .venv/
 .chainlit/
 .files/
+.DS_Store
