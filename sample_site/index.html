@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sample Form</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 24px; background: #f7f7f7; }
+    .card { max-width: 520px; margin: 0 auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    label { display: block; margin-top: 12px; font-weight: 600; }
+    input, textarea { width: 100%; padding: 8px; margin-top: 6px; border: 1px solid #ccc; border-radius: 4px; }
+    button { margin-top: 16px; padding: 10px 16px; border: 0; background: #0b5fff; color: #fff; border-radius: 6px; cursor: pointer; }
+    #result { margin-top: 16px; padding: 10px; background: #f0f6ff; border: 1px solid #c9ddff; border-radius: 6px; white-space: pre-line; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Sample Form</h1>
+    <form id="sampleForm">
+      <label for="name">Name</label>
+      <input id="name" name="name" type="text" required />
+
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+    <div id="result">No submission yet.</div>
+  </div>
+
+  <script>
+    const form = document.getElementById('sampleForm');
+    const result = document.getElementById('result');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const name = data.get('name');
+      const email = data.get('email');
+      const message = data.get('message');
+      result.textContent = `Submitted!\nName: ${name}\nEmail: ${email}\nMessage: ${message}`;
+    });
+  </script>
+</body>
+</html>
